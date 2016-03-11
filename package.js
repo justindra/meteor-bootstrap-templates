@@ -4,7 +4,7 @@ Package.describe({
   // Brief, one-line summary of the package.
   summary: 'Bootstrap Components as Blaze Templates',
   // URL to the Git repository containing the source code for this package.
-  git: '',
+  git: 'https://github.com/justindra/meteor-bootstrap-templates.git',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   api.use('ecmascript');
   api.use([
       'templating',
-      'less'
+      'less@1.0.0 || 2.5.0'
     ], 'client');
   api.addFiles('justindra-bootstrap-templates.js');
   api.addFiles([
@@ -30,6 +30,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('justindra-bootstrap-templates');
+  api.use('justindra:bootstrap-templates');
   api.addFiles('justindra-bootstrap-templates-tests.js');
 });
