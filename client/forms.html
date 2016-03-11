@@ -1,0 +1,101 @@
+<template name="bsFormInputText">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <input type="{{#if type}}{{type}}{{else}}text{{/if}}" class="form-control" name="{{name}}" value="{{value}}" placeholder="{{placeholder}}" onkeypress="{{onkeypress}}" maxlength="{{maxlength}}">
+    </div>
+  </div>
+</template>
+
+<template name="bsFormInputTemplate">
+  <div class="form-group {{wrapperClass}}">
+    <label class="{{#if labelCol}}{{labelCol}}{{else}}col-sm-2{{/if}} control-label">{{label}}</label>
+    <div class="{{#if contentCol}}{{contentCol}}{{else}}col-sm-10{{/if}}">
+      {{> UI.contentBlock}}
+    </div>
+  </div>
+</template>
+
+<template name="bsFormInputStatic">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{value}}</p>
+    </div>
+  </div>
+</template>
+
+<template name="bsFormInputDate">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" name="{{name}}" value="{{formatDate value}}" placeholder="{{placeholder}}">
+    </div>
+  </div>
+</template>
+
+<!-- <template name="inputNoEditDate">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">{{formatDate value}}</p>
+    </div>
+  </div>
+</template> -->
+
+<template name="bsFormInputTextArea">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" name="{{name}}" placeholder="{{placeholder}}" rows="5" cols="1">{{value}}</textarea>
+    </div>
+  </div>
+</template>
+
+<!-- <template name="inputImages">
+  <div class="form-group image-upload">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      {{#each image in images}}
+        <div  class="img-wrap">
+          <span class="close" data-index="{{@index}}" data-id="{{containerId}}" data-public-id="{{image.public_id}}" data-action="delete-image" data-extra="{{#if extra}}{{extra}}{{/if}}">&times;</span>
+          {{#if image.url}}
+            <img src="{{image.url}}">
+          {{else}}
+            <img src="/images/products/{{image}}">
+          {{/if}}
+        </div>
+      {{/each}}
+      {{#if allowUpload images}}
+        <input type="file" name="{{name}}" id="{{name}}" data-id="{{containerId}}">
+        <label for="{{name}}" class="btn btn-app">Add Image</label>
+      {{/if}}
+    </div>
+  </div>
+</template> -->
+
+<template name="bsFormInputImage">
+  <div class="form-group image-upload">
+    <label class="col-sm-2 control-label">{{label}}</label>
+    <div class="col-sm-10">
+      <div class="img-wrap">
+        <span class="close" data-id="{{collectionId}}" data-public-id="{{value.public_id}}" data-action="delete-image">&times;</span>
+        <img src="{{value.url}}">
+      </div>
+      <input type="file" name="{{name}}" id="{{name}}" data-id="{{collectionId}}">
+      <label for="{{name}}" class="btn btn-default">{{#if action}}{{action}}{{else}}Set Image{{/if}}</label>
+    </div>
+  </div>
+</template>
+
+<template name="bsFormInputSubmit">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="submit" class="btn btn-default {{#if rightAlign}}pull-right{{/if}}" value="{{#if value}}{{value}}{{else}}Save Changes{{/if}}">
+    </div>
+  </div>
+</template>
+
+<template name="bsFormInputHidden">
+      <input type="hidden" value="{{value}}" name="{{name}}">
+</template>
